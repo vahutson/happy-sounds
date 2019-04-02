@@ -1,0 +1,30 @@
+{
+  "name": "happySounds",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "clean": "yarn clean:build && yarn clean:watchman && yarn clean:yarn && yarn clean:start-packager",
+    "clean:build": "rm -rf ./ios/build && rm -rf ./android/app/build && rm -rf android/build",
+    "clean:yarn": "rm -rf ./node_modules && yarn && cd ./node_modules/react-native && $PWD/scripts/ios-install-third-party.sh && cd ../../",
+    "clean:watchman": "watchman watch-del-all",
+    "clean:start-packager": "react-native start --reset-cache"
+  },
+  "dependencies": {
+    "react": "16.8.3",
+    "react-native": "0.58.4",
+    "react-native-sound": "^0.10.12"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/runtime": "^7.4.2",
+    "babel-jest": "^24.6.0",
+    "jest": "^24.6.0",
+    "metro-react-native-babel-preset": "^0.53.1",
+    "react-test-renderer": "16.8.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
